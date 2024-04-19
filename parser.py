@@ -1,6 +1,6 @@
 import os
 
-def rename_files_to_lowercase(directory):
+def rename_files_to_convention(directory):
     # Iterate over each file in the directory
     for filename in os.listdir(directory):
         # Check if the file name starts with an uppercase letter
@@ -15,9 +15,23 @@ def rename_files_to_lowercase(directory):
             # Rename the file
             os.rename(old_file_path, new_file_path)
             print(f"Renamed {filename} to {new_filename}")
+        
+        # Check if the file name contains a hyphen
+        elif '-' in filename:
+            # Construct the new file name with the naming convention example-example
+            words = filename.split('-')
+            new_filename = '-'.join([word.lower() for word in words])
+            
+            # Get the full paths of the old and new files
+            old_file_path = os.path.join(directory, filename)
+            new_file_path = os.path.join(directory, new_filename)
+            
+            # Rename the file
+            os.rename(old_file_path, new_file_path)
+            print(f"Renamed {filename} to {new_filename}")
 
 # Specify the directory you want to process
 directory_path = '/path/to/your/directory'
 
 # Call the function to rename files
-rename_files_to_lowercase(directory_path)
+rename_files_to_convention(directory_path)
