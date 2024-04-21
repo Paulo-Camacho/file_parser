@@ -1,1 +1,1 @@
-Script to set the names of entire files inside of an entire directory to be all lowercase.
+Script that prompts the user for a directory and changes the contained files names to all to lowercase characters.
