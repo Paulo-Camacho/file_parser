@@ -1,1 +1,1 @@
-# file_parser
+Script to set the names of entire files inside of an entire directory to be all lowercase.
